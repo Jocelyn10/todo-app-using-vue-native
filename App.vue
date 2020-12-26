@@ -36,12 +36,12 @@ export default {
       newTodoText: "",
       todos: [
         {
-          id: 0,
+          id: 1,
           title: "Go shopping",
           done: false,
         },
         {
-          id: 0,
+          id: 2,
           title: "Hey shopping",
           done: false,
         },
@@ -58,8 +58,15 @@ export default {
 
       this.newTodoText = "";
     },
-    toggleDone() {},
-    removeTodo() {},
+    toggleDone(id) {
+      this.todos = this.todos.map((todo) => {
+        if (todo.id == id) todo.done = !todo.done;
+        return todo;
+      });
+    },
+    removeTodo(id) {
+      this.todos = this.todos.filter((todo) => todo.id !== id);
+    },
   },
 };
 </script>
